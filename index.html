@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horario Semanal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#222;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+th{
+    background:#2b6cb0;
+    color:white;
+    padding:16px;
+    font-size:18px;
+}
+
+td{
+    border:1px solid #ddd;
+    height:90px;
+    text-align:center;
+    vertical-align:middle;
+    padding:8px;
+}
+
+.hora{
+    background:#eef4ff;
+    font-weight:bold;
+    width:160px;
+}
+
+td:not(.hora){
+    cursor:text;
+}
+
+td:not(.hora):hover{
+    background:#f7fbff;
+}
+
+@media(max-width:900px){
+
+table{
+    font-size:14px;
+}
+
+th{
+    padding:12px;
+}
+
+td{
+    height:70px;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<h1>📚 Horario del Cuatrimestre</h1>
+
+<table>
+
+<tr>
+<th>Horario</th>
+<th>Lunes</th>
+<th>Martes</th>
+<th>Miércoles</th>
+<th>Jueves</th>
+<th>Viernes</th>
+</tr>
+
+<tr>
+<td class="hora">09:00 - 11:00</td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+</tr>
+
+<tr>
+<td class="hora">11:00 - 13:00</td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+</tr>
+
+<tr>
+<td class="hora">13:00 - 15:00</td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+</tr>
+
+<tr>
+<td class="hora">15:00 - 17:00</td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+</tr>
+
+<tr>
+<td class="hora">17:00 - 19:00</td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+</tr>
+
+<tr>
+<td class="hora">19:00 - 21:00</td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+</tr>
+
+</table>
+
+</body>
+</html>
