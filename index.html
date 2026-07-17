@@ -3,84 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Horario Semanal</title>
+<title>Horario 2do Cuatri</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    background:#f4f6f9;
-    padding:40px;
+background:#f3f5f9;
+padding:40px;
 }
 
 h1{
-    text-align:center;
-    margin-bottom:25px;
-    color:#222;
+text-align:center;
+margin-bottom:20px;
+}
+
+.controles{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:25px;
+align-items:center;
+}
+
+select{
+padding:10px 15px;
+font-size:16px;
+border-radius:8px;
+border:1px solid #ccc;
 }
 
 table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+width:100%;
+border-collapse:collapse;
+background:white;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 th{
-    background:#2b6cb0;
-    color:white;
-    padding:16px;
-    font-size:18px;
+background:#2b6cb0;
+color:white;
+padding:15px;
 }
 
 td{
-    border:1px solid #ddd;
-    height:90px;
-    text-align:center;
-    vertical-align:middle;
-    padding:8px;
+border:1px solid #ddd;
+height:90px;
+text-align:center;
+font-weight:bold;
+cursor:pointer;
+transition:.2s;
+}
+
+td:hover{
+filter:brightness(.95);
 }
 
 .hora{
-    background:#eef4ff;
-    font-weight:bold;
-    width:160px;
+background:#eef4ff;
+cursor:default;
 }
 
-td:not(.hora){
-    cursor:text;
+.sistemas{
+background:#5DADE2;
+color:white;
 }
 
-td:not(.hora):hover{
-    background:#f7fbff;
+.calculo{
+background:#58D68D;
+color:white;
 }
 
-@media(max-width:900px){
-
-table{
-    font-size:14px;
+.derecho{
+background:#F4D03F;
+color:black;
 }
 
-th{
-    padding:12px;
-}
-
-td{
-    height:70px;
-}
-
-}
 </style>
 
 </head>
 <body>
 
-<h1>📚 Horario del Cuatrimestre</h1>
+<h1>📚 Horario 2° Cuatrimestre</h1>
+
+<div class="controles">
+
+<label><strong>Materia:</strong></label>
+
+<select id="materia">
+<option value="">Vacío</option>
+<option value="sistemas">Sistemas Contables</option>
+<option value="calculo">Cálculo Financiero</option>
+<option value="derecho">Derecho Económico</option>
+</select>
+
+</div>
 
 <table>
 
@@ -93,59 +116,57 @@ td{
 <th>Viernes</th>
 </tr>
 
-<tr>
-<td class="hora">09:00 - 11:00</td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-</tr>
+<script>
 
-<tr>
-<td class="hora">11:00 - 13:00</td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-</tr>
+const horas=[
+"09:00 - 11:00",
+"11:00 - 13:00",
+"13:00 - 15:00",
+"15:00 - 17:00",
+"17:00 - 19:00",
+"19:00 - 21:00"
+];
 
+document.write(horas.map(h=>`
 <tr>
-<td class="hora">13:00 - 15:00</td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-</tr>
+<td class="hora">${h}</td>
 
-<tr>
-<td class="hora">15:00 - 17:00</td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-</tr>
+${Array(5).fill(`
+<td onclick="ponerMateria(this)"></td>
+`).join("")}
 
-<tr>
-<td class="hora">17:00 - 19:00</td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
 </tr>
+`).join(""));
 
-<tr>
-<td class="hora">19:00 - 21:00</td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-</tr>
+function ponerMateria(celda){
+
+const valor=document.getElementById("materia").value;
+
+celda.className="";
+celda.innerHTML="";
+
+if(valor==""){
+return;
+}
+
+if(valor=="sistemas"){
+celda.classList.add("sistemas");
+celda.innerHTML="Sistemas Contables";
+}
+
+if(valor=="calculo"){
+celda.classList.add("calculo");
+celda.innerHTML="Cálculo Financiero";
+}
+
+if(valor=="derecho"){
+celda.classList.add("derecho");
+celda.innerHTML="Derecho Económico";
+}
+
+}
+
+</script>
 
 </table>
 
